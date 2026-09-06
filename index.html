@@ -22,7 +22,7 @@
             padding: 20px;
         }
 
-        /* Анимация переливания двумя/разными цветами */
+        /* Анимация переливания разными цветами */
         @keyframes rainbow {
             0%   { color: #FF0000; text-shadow: 2px 2px #FFFF00; }
             20%  { color: #FF00FF; text-shadow: 2px 2px #00FFFF; }
@@ -32,12 +32,44 @@
             100% { color: #FF0000; text-shadow: 2px 2px #FFFF00; }
         }
 
-        /* Смещение заголовка в верхний правый угол */
+        /* Блок заголовка и кнопки в верхнем правом углу */
+        .top-header-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 20px 20px auto;
+            flex-wrap: wrap;
+        }
+
         .top-right-header {
-            text-align: right;
-            font-size: 22px;
-            margin: 10px 20px 20px 0;
+            font-size: 20px;
+            margin: 0;
             animation: rainbow 1s infinite;
+        }
+
+        /* Анимация мигания кнопки */
+        @keyframes blink {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .blink-btn {
+            background-color: #00FF00;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 5px 10px;
+            border: 3px ridge #FFFFFF;
+            cursor: pointer;
+            font-family: "Comic Sans MS", sans-serif;
+            animation: blink 0.8s infinite;
+        }
+        .blink-btn:hover {
+            background-color: #FF00FF;
+            color: #FFFF00;
         }
 
         .retro-table {
@@ -57,30 +89,6 @@
             padding: 5px;
             margin-bottom: 10px;
         }
-
-        /* Анимация мигания для кнопки */
-        @keyframes blink {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .blink-btn {
-            display: inline-block;
-            margin: 10px auto;
-            padding: 8px 15px;
-            background-color: #00FF00;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            border: 3px ridge #FFFFFF;
-            cursor: pointer;
-            animation: blink 0.8s infinite;
-        }
-        .blink-btn:hover {
-            background-color: #FF00FF;
-            color: #FFFF00;
-        }
     </style>
 </head>
 <body>
@@ -89,13 +97,11 @@
         <marquee scrollamount="8">!!! ВНИМАНИЕ !!! ВЫ ВОШЛИ В СВЕРХСЕКРЕТНУЮ ЗОНУ АБСУРДА !!! ЛУЧШИЙ ПРОСМОТР В INTERNET EXPLORER 6.0 !!!</marquee>
     </div>
 
-    <!-- Заголовок в верхнем правом углу -->
-    <h1 class="top-right-header">*** SUPER DUPER MEGA COOL PAGE ***</h1>
-
-    <!-- Мигающая кнопка-ссылка на рабочий клип MACHINE GIRL -->
-    <a href="https://www.youtube.com/watch?v=fYkShnaf454" target="_blank" class="blink-btn">
-        📺 PUSH 4 VID! (MACHINE GIRL - うずまき) 📺
-    </a>
+    <!-- Заголовок и мигающая кнопка-переход на player.html -->
+    <div class="top-header-container">
+        <a href="player.html" class="blink-btn">📺 PUSH 4 VID!</a>
+        <h1 class="top-right-header">*** SUPER DUPER MEGA COOL PAGE ***</h1>
+    </div>
 
     <div class="retro-table">
         <h2>ДОБРО ПОЖАЛОВАТЬ НА МОЮ ДОМАШНЮЮ СТРАНИЦУ!</h2>
