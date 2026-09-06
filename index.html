@@ -21,31 +21,65 @@
             margin: 0;
             padding: 20px;
         }
-        h1 {
-            color: #FF00FF;
-            text-shadow: 2px 2px #FFFF00;
+
+        /* Анимация переливания разными цветами */
+        @keyframes rainbow {
+            0%   { color: #FF0000; text-shadow: 2px 2px #FFFF00; }
+            20%  { color: #FF00FF; text-shadow: 2px 2px #00FFFF; }
+            40%  { color: #00FF00; text-shadow: 2px 2px #FF0000; }
+            60%  { color: #FFFF00; text-shadow: 2px 2px #FF00FF; }
+            80%  { color: #00FFFF; text-shadow: 2px 2px #00FF00; }
+            100% { color: #FF0000; text-shadow: 2px 2px #FFFF00; }
         }
+
+        /* Смещение заголовка в правый верхний угол */
+        .top-right-header {
+            text-align: right;
+            font-size: 22px;
+            margin: 10px 20px 20px 0;
+            animation: rainbow 1s infinite;
+        }
+
         .retro-table {
             border: 5px ridge #C0C0C0;
             background-color: #C0C0C0;
             color: #000;
-            margin: 20px auto;
+            margin: 30px auto;
             width: 80%;
             max-width: 600px;
             padding: 10px;
         }
+
         .marquee-box {
             background-color: #FF0000;
             color: #FFFFFF;
             font-weight: bold;
             padding: 5px;
+            margin-bottom: 10px;
         }
-        .video-container {
-            margin: 20px auto;
-            max-width: 560px;
-            border: 4px ridge #FFFF00;
-            padding: 5px;
-            background-color: #000;
+
+        /* Анимация мигания для кнопки-ссылки */
+        @keyframes blink {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .blink-btn {
+            display: inline-block;
+            margin: 10px auto;
+            padding: 8px 15px;
+            background-color: #00FF00;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px ridge #FFFFFF;
+            cursor: pointer;
+            animation: blink 0.8s infinite;
+        }
+        .blink-btn:hover {
+            background-color: #FF00FF;
+            color: #FFFF00;
         }
     </style>
 </head>
@@ -55,13 +89,13 @@
         <marquee scrollamount="8">!!! ВНИМАНИЕ !!! ВЫ ВОШЛИ В СВЕРХСЕКРЕТНУЮ ЗОНУ АБСУРДА !!! ЛУЧШИЙ ПРОСМОТР В INTERNET EXPLORER 6.0 !!!</marquee>
     </div>
 
-    <h1>*** SUPER DUPER MEGA COOL PAGE ***</h1>
+    <!-- Заголовок в верхнем правом углу с миганием цветами -->
+    <h1 class="top-right-header">*** SUPER DUPER MEGA COOL PAGE ***</h1>
 
-    <!-- Встроенное видео Machine Girl - [g0od]_[f3°¥] -->
-    <div class="video-container">
-        <h3 style="color: #00FF00;">=== MACHINE GIRL VIP PLAYER ===</h3>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/-GTmbxJXqTo" title="Machine Girl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+    <!-- Мигающая кнопка-ссылка на видео в YouTube -->
+    <a href="https://www.youtube.com/watch?v=-GTmbxJXqTo" target="_blank" class="blink-btn">
+        📺 PUSH 4 VID! (MACHINE GIRL) 📺
+    </a>
 
     <div class="retro-table">
         <h2>ДОБРО ПОЖАЛОВАТЬ НА МОЮ ДОМАШНЮЮ СТРАНИЦУ!</h2>
