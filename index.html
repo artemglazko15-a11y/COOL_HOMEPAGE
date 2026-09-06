@@ -2,119 +2,133 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Подтверждение прав Google Search Console -->
-    <meta name="google-site-verification" content="yNt0bDfEId1TFHqR3ZCenVp3sSW35QnA7R__rLgWyJE" />
-    
-    <title>super duper mega cool page</title>
-    <meta name="description" content="super duper mega cool page — самый бессмысленный сайт эпохи Dial-Up и Web 2.0!">
-    <meta name="keywords" content="super duper mega cool page, ретро сайт, 2000-е, интернет 2007, гифки">
-
+    <title>SUPER DUPER MEGA COOL PAGE</title>
     <style>
+        /* Сброс отступов и черный фон страницы */
         body {
-            background-color: #000080;
-            color: #00FF00;
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            text-align: center;
+            background-color: #000000;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            color: #ffffff;
+            text-align: center;
         }
 
-        /* Анимация переливания разными цветами */
-        @keyframes rainbow {
-            0%   { color: #FF0000; text-shadow: 2px 2px #FFFF00; }
-            20%  { color: #FF00FF; text-shadow: 2px 2px #00FFFF; }
-            40%  { color: #00FF00; text-shadow: 2px 2px #FF0000; }
-            60%  { color: #FFFF00; text-shadow: 2px 2px #FF00FF; }
-            80%  { color: #00FFFF; text-shadow: 2px 2px #00FF00; }
-            100% { color: #FF0000; text-shadow: 2px 2px #FFFF00; }
+        /* Красная бегущая строка на всю ширину без отступов */
+        marquee.top-banner {
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 6px 0;
+            display: block;
+            width: 100%;
+            margin: 0;
         }
 
-        /* Блок заголовка и кнопки в верхнем правом углу */
-        .top-header-container {
+        /* Верхняя панель с кнопкой и заголовком */
+        .header-bar {
+            margin-top: 15px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
+            padding: 0 20px;
             gap: 15px;
-            margin: 10px 20px 20px auto;
-            flex-wrap: wrap;
         }
 
-        .top-right-header {
-            font-size: 20px;
-            margin: 0;
-            animation: rainbow 1s infinite;
-        }
-
-        /* Анимация мигания кнопки */
-        @keyframes blink {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .blink-btn {
-            background-color: #00FF00;
-            color: #000;
+        .btn-push {
+            background-color: #00ff00;
+            color: #000000;
+            font-weight: bold;
+            padding: 6px 12px;
             text-decoration: none;
+            border: 2px outset #ffffff;
+            font-size: 14px;
+        }
+
+        .btn-push:active {
+            border-style: inset;
+        }
+
+        .site-title {
+            color: #ff00ff;
             font-weight: bold;
-            font-size: 12px;
-            padding: 5px 10px;
-            border: 3px ridge #FFFFFF;
+            font-size: 20px;
+            text-shadow: 2px 2px #ffff00;
+        }
+
+        /* Серый классический окне-блок в центре */
+        .main-box {
+            background-color: #c0c0c0;
+            color: #000000;
+            width: 500px;
+            max-width: 90%;
+            margin: 40px auto 20px auto;
+            padding: 30px 20px;
+            border: 3px outset #ffffff;
+            box-shadow: 5px 5px 0px #000000;
+        }
+
+        .main-box h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .main-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn-dont-click {
+            background-color: #e0e0e0;
+            border: 2px outset #ffffff;
+            padding: 4px 10px;
             cursor: pointer;
-            font-family: "Comic Sans MS", sans-serif;
-            animation: blink 0.8s infinite;
-        }
-        .blink-btn:hover {
-            background-color: #FF00FF;
-            color: #FFFF00;
+            font-family: inherit;
         }
 
-        .retro-table {
-            border: 5px ridge #C0C0C0;
-            background-color: #C0C0C0;
-            color: #000;
-            margin: 30px auto;
-            width: 80%;
-            max-width: 600px;
-            padding: 10px;
+        .btn-dont-click:active {
+            border-style: inset;
         }
 
-        .marquee-box {
-            background-color: #FF0000;
-            color: #FFFFFF;
+        /* Счетчик посетителей */
+        .counter {
+            margin-top: 25px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .counter-number {
+            color: #ffff00;
             font-weight: bold;
-            padding: 5px;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="marquee-box">
-        <marquee scrollamount="8">!!! ВНИМАНИЕ !!! ВЫ ВОШЛИ В СВЕРХСЕКРЕТНУЮ ЗОНУ АБСУРДА !!! ЛУЧШИЙ ПРОСМОТР В INTERNET EXPLORER 6.0 !!!</marquee>
+    <!-- Бегущая строка во всю ширину -->
+    <marquee class="top-banner" scrollamount="6">
+        !!! ВНИМАНИЕ !!! ВЫ ВОШЛИ В СВЕРХСЕКРЕТНУЮ ЗОНУ АБСУРДА !!! ЛУЧШИЙ ПРОСМОТР В INTERNET EXPLORER 6.0 !!!
+    </marquee>
+
+    <!-- Шапка справа -->
+    <div class="header-bar">
+        <a href="player.html" class="btn-push">🖵 PUSH 4 VID!</a>
+        <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
     </div>
 
-    <!-- Заголовок и мигающая кнопка-переход на player.html -->
-    <div class="top-header-container">
-        <a href="player.html" class="blink-btn">📺 PUSH 4 VID!</a>
-        <h1 class="top-right-header">*** SUPER DUPER MEGA COOL PAGE ***</h1>
-    </div>
-
-    <div class="retro-table">
-        <h2>ДОБРО ПОЖАЛОВАТЬ НА МОЮ ДОМАШНЮЮ СТРАНИЦУ!</h2>
+    <!-- Центральный элемент Windows 95/98 -->
+    <div class="main-box">
+        <h1>ДОБРО ПОЖАЛОВАТЬ НА МОЮ ДОМАШНЮЮ СТРАНИЦУ!</h1>
         <p>Здесь ничего нет, но вы уже потратили 15 секунд своей жизни.</p>
-        
-        <button onclick="alert('Вы нажали красную кнопку! Ничего не произошло!')" style="font-family: 'Comic Sans MS'; cursor: pointer;">
-            НЕ НАЖИМАТЬ!
-        </button>
+        <button class="btn-dont-click" onclick="alert('Я же просил НЕ НАЖИМАТЬ!')">НЕ НАЖИМАТЬ!</button>
     </div>
 
-    <p style="color: #FFFF00;">
-        Счётчик посетителей: <b>00042069</b>
-    </p>
+    <!-- Счетчик -->
+    <div class="counter">
+        Счётчик посетителей: <span class="counter-number">00042069</span>
+    </div>
 
 </body>
 </html>
