@@ -50,19 +50,26 @@
             border-style: inset;
         }
 
-        /* Анимация мигания (замена устаревшего тега <blink>) */
-        @keyframes blink-animation {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+        /* Анимация радужного перелива цветов (Web 1.0 стиль) */
+        @keyframes rainbow-animation {
+            0% { color: #ff00ff; }   /* Маджента */
+            17% { color: #ff0000; }  /* Красный */
+            33% { color: #ffff00; }  /* Желтый */
+            50% { color: #00ff00; }  /* Зеленый */
+            67% { color: #00ffff; }  /* Циан */
+            83% { color: #0000ff; }  /* Синий */
+            100% { color: #ff00ff; } /* Возврат к мадженте */
         }
 
         .site-title {
-            color: #ff00ff;
+            /* Базовый цвет */
+            color: #ff00ff; 
             font-weight: bold;
             font-size: 20px;
-            text-shadow: 2px 2px #ffff00;
-            animation: blink-animation 0.8s infinite;
+            /* Желтая тень для ретро-эффекта */
+            text-shadow: 2px 2px 0px #ffff00; 
+            /* Подключаем анимацию: имя, длительность, бесконечно, плавно */
+            animation: rainbow-animation 3s infinite linear;
         }
 
         /* Серый классический окно-блок в центре */
