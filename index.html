@@ -50,14 +50,22 @@
             border-style: inset;
         }
 
+        /* Анимация мигания (замена устаревшего тега <blink>) */
+        @keyframes blink-animation {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
         .site-title {
             color: #ff00ff;
             font-weight: bold;
             font-size: 20px;
             text-shadow: 2px 2px #ffff00;
+            animation: blink-animation 0.8s infinite;
         }
 
-        /* Серый классический окне-блок в центре */
+        /* Серый классический окно-блок в центре */
         .main-box {
             background-color: #c0c0c0;
             color: #000000;
