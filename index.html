@@ -179,7 +179,6 @@
         <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
     </div>
 
-    <!-- Основной серый блок -->
     <div id="main-box-container" class="main-box">
         <h1>WELCOME TO MY HOME PAGE!</h1>
         <p>this is my very first website</p>
@@ -207,16 +206,15 @@
     </div>
 
     <script>
-        // Функция удаления кнопки полностью из DOM
         function removeButton() {
             var btn = document.getElementById('main-btn');
             if (btn) {
-                btn.remove(); // Полностью вырезаем элемент со страницы
+                btn.remove();
             }
         }
 
-        // Проверяем при загрузке
-        if (localStorage.getItem('screamerTriggered') === 'true') {
+        // Проверяем сессию при загрузке
+        if (sessionStorage.getItem('screamerTriggered') === 'true') {
             removeButton();
         }
 
@@ -230,8 +228,8 @@
             } else if (clickCount === 2) {
                 alert('SERIOUSLY! Stop clicking this button!');
             } else if (clickCount >= 3) {
-                // Ставим метку и сразу удаляем кнопку перед переходом
-                localStorage.setItem('screamerTriggered', 'true');
+                // Сохраняем ТОЛЬКО на время текущей сессии
+                sessionStorage.setItem('screamerTriggered', 'true');
                 removeButton();
                 window.location.href = 'secret.html';
             }
