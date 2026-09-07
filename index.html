@@ -212,7 +212,7 @@
     <div class="main-box">
         <h1>WELCOME TO MY HOME PAGE!</h1>
         <p>this is my very first website</p>
-        <button class="btn-dont-click" onclick="alert('I told you DO NOT CLICK!')">DO NOT CLICK!</button>
+        <button class="btn-dont-click" onclick="handleButtonClick()">DO NOT CLICK!</button>
     </div>
 
     <!-- The Old Net Section -->
@@ -236,6 +236,23 @@
             <li><a href="fact3.html">Fact #3: The Tragedy of SEGA Dreamcast</a></li>
         </ul>
     </div>
+
+    <!-- Screamer Click Logic -->
+    <script>
+        let clickCount = 0;
+
+        function handleButtonClick() {
+            clickCount++;
+
+            if (clickCount === 1) {
+                alert('I told you DO NOT CLICK!');
+            } else if (clickCount === 2) {
+                alert('SERIOUSLY! Stop clicking this button!');
+            } else if (clickCount >= 3) {
+                window.location.href = 'secret.html';
+            }
+        }
+    </script>
 
 </body>
 </html>
