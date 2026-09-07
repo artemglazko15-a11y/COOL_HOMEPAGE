@@ -179,7 +179,8 @@
         <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
     </div>
 
-    <div class="main-box">
+    <!-- Основной серый блок -->
+    <div id="main-box-container" class="main-box">
         <h1>WELCOME TO MY HOME PAGE!</h1>
         <p>this is my very first website</p>
         <button id="main-btn" class="btn-dont-click" onclick="handleButtonClick()">DO NOT CLICK!</button>
@@ -206,12 +207,17 @@
     </div>
 
     <script>
-        // При загрузке страницы проверяем метку
-        if (localStorage.getItem('screamerTriggered') === 'true') {
+        // Функция удаления кнопки полностью из DOM
+        function removeButton() {
             var btn = document.getElementById('main-btn');
             if (btn) {
-                btn.style.display = 'none'; // Скрываем кнопку
+                btn.remove(); // Полностью вырезаем элемент со страницы
             }
+        }
+
+        // Проверяем при загрузке
+        if (localStorage.getItem('screamerTriggered') === 'true') {
+            removeButton();
         }
 
         let clickCount = 0;
@@ -224,242 +230,9 @@
             } else if (clickCount === 2) {
                 alert('SERIOUSLY! Stop clicking this button!');
             } else if (clickCount >= 3) {
-                // Записываем метку ДО перехода
+                // Ставим метку и сразу удаляем кнопку перед переходом
                 localStorage.setItem('screamerTriggered', 'true');
-                window.location.href = 'secret.html';
-            }
-        }
-    </script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SUPER DUPER MEGA COOL PAGE</title>
-    <style>
-        body {
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            color: #ffffff;
-            text-align: center;
-            overflow-x: hidden;
-        }
-
-        .marquee-container {
-            background-color: #ff0000;
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 16px;
-            padding: 6px 0;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        @keyframes continuous-scroll {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0%); }
-        }
-
-        .marquee-content {
-            display: inline-flex;
-            white-space: nowrap;
-            animation: continuous-scroll 20s linear infinite;
-        }
-
-        .marquee-text {
-            display: inline-block;
-            white-space: nowrap;
-            letter-spacing: 2px;
-            padding-right: 30px;
-        }
-
-        .glitch-mark {
-            color: #00ffff;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 900;
-            position: relative;
-            animation: glitch-anim 0.3s infinite alternate;
-            cursor: pointer;
-            padding: 0 4px;
-        }
-
-        @keyframes glitch-anim {
-            0% { transform: translate(0); text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
-            25% { transform: translate(-2px, 2px); text-shadow: 2px -1px #ff0000, -2px 1px #00ff00; }
-            50% { transform: translate(2px, -1px); text-shadow: -1px 2px #ffff00, 1px -2px #ff00ff; }
-            75% { transform: translate(-1px, -2px); text-shadow: 2px 0 #00ffff, -2px 0 #ff0000; }
-            100% { transform: translate(1px, 1px); text-shadow: -2px -2px #00ff00, 2px 2px #ffff00; }
-        }
-
-        .header-bar {
-            margin-top: 15px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        @keyframes rainbow-animation {
-            0% { color: #ff00ff; }
-            17% { color: #ff0000; }
-            33% { color: #ffff00; }
-            50% { color: #00ff00; }
-            67% { color: #00ffff; }
-            83% { color: #0000ff; }
-            100% { color: #ff00ff; }
-        }
-
-        .site-title {
-            color: #ff00ff; 
-            font-weight: bold;
-            font-size: 20px;
-            text-shadow: 2px 2px 0px #ffff00; 
-            animation: rainbow-animation 3s infinite linear;
-        }
-
-        .main-box {
-            background-color: #c0c0c0;
-            color: #000000;
-            width: 500px;
-            max-width: 90%;
-            margin: 40px auto 20px auto;
-            padding: 30px 20px;
-            border: 3px outset #ffffff;
-            box-shadow: 5px 5px 0px #000000;
-        }
-
-        .main-box h1 {
-            font-size: 22px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .main-box p {
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .btn-dont-click {
-            background-color: #e0e0e0;
-            border: 2px outset #ffffff;
-            padding: 4px 10px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .btn-dont-click:active {
-            border-style: inset;
-        }
-
-        .oldnet-section {
-            margin: 30px auto;
-            max-width: 500px;
-            background: #ffffff;
-            color: #000000;
-            border: 2px inset #ffffff;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .oldnet-links a {
-            color: #0000ff;
-            font-weight: bold;
-            text-decoration: underline;
-            margin: 0 10px;
-            display: inline-block;
-        }
-
-        .oldnet-links a:hover {
-            color: #ff0000;
-        }
-
-        .links-list {
-            text-align: left;
-            font-size: 13px;
-            margin-top: 10px;
-        }
-
-        .links-list li {
-            margin-bottom: 8px;
-            list-style-type: square;
-            color: #008000;
-        }
-
-        .links-list a {
-            color: #0000ff;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <div class="marquee-text">
-                ????? WELCOME TO THE ZONE ????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? BEST VIEWED IN IE 6.0 ????? COOL PAGE ?????
-            </div>
-            <div class="marquee-text">
-                ????? WELCOME TO THE ZONE ????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? BEST VIEWED IN IE 6.0 ????? COOL PAGE ?????
-            </div>
-        </div>
-    </div>
-
-    <div class="header-bar">
-        <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
-    </div>
-
-    <div class="main-box">
-        <h1>WELCOME TO MY HOME PAGE!</h1>
-        <p>this is my very first website</p>
-        <button id="main-btn" class="btn-dont-click" onclick="handleButtonClick()">DO NOT CLICK!</button>
-    </div>
-
-    <div class="oldnet-section">
-        <div class="oldnet-links">
-            <a href="#" onclick="alert('Guestbook is currently full of spam!')">📝 Sign the Guestbook</a>
-            <a href="#" onclick="alert('Chat room currently contains only bots!')">💬 Enter Chat Room</a>
-        </div>
-
-        <a href="#" onclick="alert('Redirecting to sponsor site!'); return false;">
-            <img src="2WcK.gif" width="468" height="60" alt="Sponsor Banner" style="border: 2px solid #000000; margin: 15px auto; display: block; max-width: 100%; height: auto;">
-        </a>
-
-        <div style="font-weight: bold; color: #ff0000; margin-top: 10px;">
-            Interesting Facts:
-        </div>
-        <ul class="links-list">
-            <li><a href="fact1.html">Fact #1: The Sony PSP Era</a></li>
-            <li><a href="fact2.html">Fact #2: Nintendo DS Revolution</a></li>
-            <li><a href="fact3.html">Fact #3: The Tragedy of SEGA Dreamcast</a></li>
-        </ul>
-    </div>
-
-    <script>
-        // При загрузке страницы проверяем метку
-        if (localStorage.getItem('screamerTriggered') === 'true') {
-            var btn = document.getElementById('main-btn');
-            if (btn) {
-                btn.style.display = 'none'; // Скрываем кнопку
-            }
-        }
-
-        let clickCount = 0;
-
-        function handleButtonClick() {
-            clickCount++;
-
-            if (clickCount === 1) {
-                alert('I told you DO NOT CLICK!');
-            } else if (clickCount === 2) {
-                alert('SERIOUSLY! Stop clicking this button!');
-            } else if (clickCount >= 3) {
-                // Записываем метку ДО перехода
-                localStorage.setItem('screamerTriggered', 'true');
+                removeButton();
                 window.location.href = 'secret.html';
             }
         }
