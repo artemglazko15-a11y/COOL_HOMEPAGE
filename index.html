@@ -25,31 +25,30 @@
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
-            display: flex;
         }
 
-        /* Анимация движения слева направо на всю ширину */
-        @keyframes scroll-right {
+        /* Бесконечная плавная анимация без паузы */
+        @keyframes continuous-scroll {
             0% {
-                transform: translateX(-100%);
+                transform: translateX(-50%);
             }
             100% {
-                transform: translateX(100%);
+                transform: translateX(0%);
             }
         }
 
         .marquee-content {
-            display: flex;
+            display: inline-flex;
             white-space: nowrap;
-            width: 100%;
-            /* Время 20s — полная прокрутка через весь экран */
-            animation: scroll-right 20s linear infinite;
+            /* Скорость 20s — можно уменьшить для ускорения или увеличить для замедления */
+            animation: continuous-scroll 20s linear infinite;
         }
 
         .marquee-text {
-            padding-right: 50px;
-            letter-spacing: 2px;
+            display: inline-block;
             white-space: nowrap;
+            letter-spacing: 2px;
+            padding-right: 30px;
         }
 
         /* Глич-эффект для секретного знака */
@@ -61,6 +60,7 @@
             position: relative;
             animation: glitch-anim 0.3s infinite alternate;
             cursor: pointer;
+            padding: 0 4px;
         }
 
         @keyframes glitch-anim {
@@ -95,15 +95,15 @@
             padding: 0 20px;
         }
 
-        /* Анимация радужного перелива цветов (Web 1.0 стиль) */
+        /* Анимация радужного перелива цветов */
         @keyframes rainbow-animation {
-            0% { color: #ff00ff; }   /* Маджента */
-            17% { color: #ff0000; }  /* Красный */
-            33% { color: #ffff00; }  /* Желтый */
-            50% { color: #00ff00; }  /* Зеленый */
-            67% { color: #00ffff; }  /* Циан */
-            83% { color: #0000ff; }  /* Синий */
-            100% { color: #ff00ff; } /* Возврат к мадженте */
+            0% { color: #ff00ff; }
+            17% { color: #ff0000; }
+            33% { color: #ffff00; }
+            50% { color: #00ff00; }
+            67% { color: #00ffff; }
+            83% { color: #0000ff; }
+            100% { color: #ff00ff; }
         }
 
         .site-title {
@@ -164,14 +164,19 @@
 </head>
 <body>
 
-    <!-- Бегущая строка (проезжает весь экран от края до края) -->
+    <!-- Бесконечная бегущая строка без задержек -->
     <div class="marquee-container">
         <div class="marquee-content">
-            <div class="marquee-text">????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? COOL PAGE ?????</div>
+            <div class="marquee-text">
+                ????? WELCOME TO THE ZONE ????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? BEST VIEWED IN IE 6.0 ????? COOL PAGE ?????
+            </div>
+            <div class="marquee-text">
+                ????? WELCOME TO THE ZONE ????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? BEST VIEWED IN IE 6.0 ????? COOL PAGE ?????
+            </div>
         </div>
     </div>
 
-    <!-- Шапка справа (только заголовок) -->
+    <!-- Шапка справа -->
     <div class="header-bar">
         <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
     </div>
