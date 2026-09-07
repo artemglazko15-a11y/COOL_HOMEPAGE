@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>SUPER DUPER MEGA COOL PAGE</title>
     <style>
-        /* Reset margins and black background */
         body {
             background-color: #000000;
             margin: 0;
@@ -15,7 +14,6 @@
             overflow-x: hidden;
         }
 
-        /* Marquee container */
         .marquee-container {
             background-color: #ff0000;
             color: #ffffff;
@@ -27,14 +25,9 @@
             white-space: nowrap;
         }
 
-        /* Continuous scroll animation */
         @keyframes continuous-scroll {
-            0% {
-                transform: translateX(-50%);
-            }
-            100% {
-                transform: translateX(0%);
-            }
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
         }
 
         .marquee-content {
@@ -50,7 +43,6 @@
             padding-right: 30px;
         }
 
-        /* Glitch mark effect */
         .glitch-mark {
             color: #00ffff;
             text-decoration: none;
@@ -63,29 +55,13 @@
         }
 
         @keyframes glitch-anim {
-            0% {
-                transform: translate(0);
-                text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
-            }
-            25% {
-                transform: translate(-2px, 2px);
-                text-shadow: 2px -1px #ff0000, -2px 1px #00ff00;
-            }
-            50% {
-                transform: translate(2px, -1px);
-                text-shadow: -1px 2px #ffff00, 1px -2px #ff00ff;
-            }
-            75% {
-                transform: translate(-1px, -2px);
-                text-shadow: 2px 0 #00ffff, -2px 0 #ff0000;
-            }
-            100% {
-                transform: translate(1px, 1px);
-                text-shadow: -2px -2px #00ff00, 2px 2px #ffff00;
-            }
+            0% { transform: translate(0); text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
+            25% { transform: translate(-2px, 2px); text-shadow: 2px -1px #ff0000, -2px 1px #00ff00; }
+            50% { transform: translate(2px, -1px); text-shadow: -1px 2px #ffff00, 1px -2px #ff00ff; }
+            75% { transform: translate(-1px, -2px); text-shadow: 2px 0 #00ffff, -2px 0 #ff0000; }
+            100% { transform: translate(1px, 1px); text-shadow: -2px -2px #00ff00, 2px 2px #ffff00; }
         }
 
-        /* Header bar */
         .header-bar {
             margin-top: 15px;
             display: flex;
@@ -94,7 +70,6 @@
             padding: 0 20px;
         }
 
-        /* Rainbow text animation */
         @keyframes rainbow-animation {
             0% { color: #ff00ff; }
             17% { color: #ff0000; }
@@ -113,7 +88,6 @@
             animation: rainbow-animation 3s infinite linear;
         }
 
-        /* Retro main box */
         .main-box {
             background-color: #c0c0c0;
             color: #000000;
@@ -148,7 +122,6 @@
             border-style: inset;
         }
 
-        /* Old net section */
         .oldnet-section {
             margin: 30px auto;
             max-width: 500px;
@@ -191,7 +164,6 @@
 </head>
 <body>
 
-    <!-- Marquee Banner -->
     <div class="marquee-container">
         <div class="marquee-content">
             <div class="marquee-text">
@@ -203,26 +175,22 @@
         </div>
     </div>
 
-    <!-- Header bar -->
     <div class="header-bar">
         <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
     </div>
 
-    <!-- Main Windows 95/98 Box -->
     <div class="main-box">
         <h1>WELCOME TO MY HOME PAGE!</h1>
         <p>this is my very first website</p>
-        <button class="btn-dont-click" onclick="handleButtonClick()">DO NOT CLICK!</button>
+        <button id="main-btn" class="btn-dont-click" onclick="handleButtonClick()">DO NOT CLICK!</button>
     </div>
 
-    <!-- The Old Net Section -->
     <div class="oldnet-section">
         <div class="oldnet-links">
             <a href="#" onclick="alert('Guestbook is currently full of spam!')">📝 Sign the Guestbook</a>
             <a href="#" onclick="alert('Chat room currently contains only bots!')">💬 Enter Chat Room</a>
         </div>
 
-        <!-- GIF Sponsor Banner -->
         <a href="#" onclick="alert('Redirecting to sponsor site!'); return false;">
             <img src="2WcK.gif" width="468" height="60" alt="Sponsor Banner" style="border: 2px solid #000000; margin: 15px auto; display: block; max-width: 100%; height: auto;">
         </a>
@@ -237,8 +205,17 @@
         </ul>
     </div>
 
-    <!-- Screamer Click Logic -->
     <script>
+        // Проверяем, была ли кнопка уже нажата ранее
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('screamerTriggered') === 'true') {
+                var btn = document.getElementById('main-btn');
+                if (btn) {
+                    btn.remove(); // Удаляем кнопку со страницы
+                }
+            }
+        });
+
         let clickCount = 0;
 
         function handleButtonClick() {
