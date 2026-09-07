@@ -40,7 +40,6 @@
         .marquee-content {
             display: inline-flex;
             white-space: nowrap;
-            /* Скорость 20s — можно уменьшить для ускорения или увеличить для замедления */
             animation: continuous-scroll 20s linear infinite;
         }
 
@@ -149,9 +148,50 @@
             border-style: inset;
         }
 
+        /* Ретро-блок со ссылками в стиле The Old Net */
+        .oldnet-section {
+            margin: 30px auto;
+            max-width: 500px;
+            background: #ffffff;
+            color: #000000;
+            border: 2px inset #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .oldnet-links a {
+            color: #0000ff;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .oldnet-links a:hover {
+            color: #ff0000;
+        }
+
+        .links-list {
+            text-align: left;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .links-list li {
+            margin-bottom: 5px;
+            list-style-type: square;
+            color: #008000;
+        }
+
+        .links-list a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
         /* Счетчик посетителей */
         .counter {
             margin-top: 25px;
+            margin-bottom: 40px;
             font-size: 16px;
             color: #ffffff;
         }
@@ -184,8 +224,30 @@
     <!-- Центральный элемент Windows 95/98 -->
     <div class="main-box">
         <h1>ДОБРО ПОЖАЛОВАТЬ НА МОЮ ДОМАШНЮЮ СТРАНИЦУ!</h1>
-        <p>Здесь ничего нет, но вы уже потратили 15 секунд своей жизни.</p>
+        <p>это мой самый первый сайт</p>
         <button class="btn-dont-click" onclick="alert('Я же просил НЕ НАЖИМАТЬ!')">НЕ НАЖИМАТЬ!</button>
+    </div>
+
+    <!-- Секция The Old Net с вашим GIF-баннером -->
+    <div class="oldnet-section">
+        <div class="oldnet-links">
+            <a href="#" onclick="alert('Гостевая книга временно заполнена спамом!')">📝 Sign the Guestbook</a>
+            <a href="#" onclick="alert('В чате сейчас только боты!')">💬 Enter Chat Room</a>
+        </div>
+
+        <!-- АНИМИРОВАННЫЙ БАННЕР GIF -->
+        <a href="#" onclick="alert('Переход на рекламный сайт!'); return false;">
+            <img src="2WcK.gif" width="468" height="60" alt="Sponsor Banner" style="border: 2px solid #000000; margin: 15px auto; display: block; max-width: 100%; height: auto;">
+        </a>
+
+        <div style="font-weight: bold; color: #ff0000; margin-top: 10px;">
+            Random Homepages of the Day:
+        </div>
+        <ul class="links-list">
+            <li><a href="#" onclick="alert('Ошибка 404: Страница удалена в 2002 году')">Weblaster's mIRC Pages</a></li>
+            <li><a href="#" onclick="alert('Сайт переехал на GeoCities!')">The SEGA Dimension - All about SEGA!</a></li>
+            <li><a href="#" onclick="alert('Загрузка 1.44MB флоппи-диска...')">Ed's Linux and Computers Page</a></li>
+        </ul>
     </div>
 
     <!-- Счетчик -->
