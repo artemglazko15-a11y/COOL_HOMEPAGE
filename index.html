@@ -28,25 +28,28 @@
             display: flex;
         }
 
-        /* Анимация движения слева направо (медленная) */
+        /* Анимация движения слева направо на всю ширину */
         @keyframes scroll-right {
             0% {
                 transform: translateX(-100%);
             }
             100% {
-                transform: translateX(0%);
+                transform: translateX(100%);
             }
         }
 
         .marquee-content {
             display: flex;
             white-space: nowrap;
-            animation: scroll-right 25s linear infinite;
+            width: 100%;
+            /* Время 20s — полная прокрутка через весь экран */
+            animation: scroll-right 20s linear infinite;
         }
 
         .marquee-text {
             padding-right: 50px;
             letter-spacing: 2px;
+            white-space: nowrap;
         }
 
         /* Глич-эффект для секретного знака */
@@ -161,15 +164,14 @@
 </head>
 <body>
 
-    <!-- Бегущая строка со сбойным знаком -->
+    <!-- Бегущая строка (проезжает весь экран от края до края) -->
     <div class="marquee-container">
         <div class="marquee-content">
-            <div class="marquee-text">????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? COOL PAGE ?????</div>
             <div class="marquee-text">????? COOL PAGE ????? <a href="player.html" class="glitch-mark">?</a> ????? COOL PAGE ?????</div>
         </div>
     </div>
 
-    <!-- Шапка (кнопка убрана, оставлен только заголовок) -->
+    <!-- Шапка справа (только заголовок) -->
     <div class="header-bar">
         <span class="site-title">*** SUPER DUPER MEGA COOL PAGE ***</span>
     </div>
